@@ -768,8 +768,9 @@ void CLaserOdometry2D::performWarping()
         //Very close pixel
         if (std::abs(std::round(uwarp) - uwarp) < 0.05f)
         {
-          range_warped[image_level](round(uwarp)) += range_w;
-          wacu(std::round(uwarp)) += 1.f;
+          int index = (int) std::round(uwarp);
+          range_warped[image_level](index) += range_w;
+          wacu(index) += 1.f;
         }
         else
         {
